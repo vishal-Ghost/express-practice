@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script>
+      const handleSubmit = (event) =>{
+        event.preventDefault()
+
+        var form = document.getElementById('form')
+        var formData = new FormData(form)
+
+        fetch(
+          'http://localhost:5000/api/upload',{
+            method:'POST',
+            body : formData
+          }
+        )
+      }
+     </script>
+ </head>
+ <body>
+   <button type="submit" form="form">Submit</button>
+     <form action="http://localhost:5000/upload" onsubmit='handleSubmit(event)' method="post" enctype="multipart/form-data" id="form">
+         <input type="text" name="name" id="">
+         <input type="number" name="age" id="">
+         <input type="file" name="file" id="">
+     </form>
+ </body>
+
+ </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
